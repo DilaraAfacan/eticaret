@@ -1,0 +1,97 @@
+﻿.content-girisyap {
+    text-align: center;
+    background-color: #FFF9C7;
+    width: 500px;
+    height: 500px;
+    padding: 40px;
+    margin: 100px auto;
+    font-family: calibri;
+    border-radius: 300px;
+    border: 2px solid darkred;
+    background: rgba(255, 246, 163, 0.7);
+}
+
+.content-img-girisyap {
+    background: url('resimler/logo.png') no-repeat center;
+    text-align: center;
+    width: 160px;
+    height: 160px;
+    padding: 30px;
+    margin: 0px 125px;
+    border-radius: 100px;
+    border: 2px solid darkred;
+}
+
+.container {
+    padding: 5px;
+}
+
+input[type=text], input[type=password] {
+    width: 250px;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px;
+    display: inline-block;
+    border: 2px solid darkred;
+}
+
+button {
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 2px solid darkolivegreen;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+
+.girisbtn-girisyap {
+    background-color: greenyellow;
+    border: 2px solid darkolivegreen;
+}
+
+.uyeolbtn-girisyap {
+    background-color: yellow;
+    border: 2px solid orange;
+}
+
+.content-uyeol {
+    text-align: center;
+    background-color: #FFF9C7;
+    width: 550px;
+    height: 550px;
+    padding: 40px;
+    margin: 100px auto;
+    font-family: calibri;
+    border-radius: 300px;
+    border: 2px solid darkred;
+    background: rgba(255, 246, 163, 0.7);
+}
+
+.content-img-uyeol {
+    background: url('resimler/logo.png') no-repeat center;
+    text-align: center;
+    width: 160px;
+    height: 160px;
+    padding: 30px;
+    margin: 0px 150px;
+    border-radius: 100px;
+    border: 2px solid darkred;
+}
+
+.girisyapbtn-uyeol {
+    background-color: greenyellow;
+    border: 2px solid darkolivegreen;
+}
+
+.uyeolbtn-uyeol {
+    background-color: yellow;
+    border: 2px solid orange;
+}
+#slider-id1 {
+    border: none;
+    border-radius: 0;
+}

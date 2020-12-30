@@ -1,0 +1,83 @@
+﻿body {
+    font-family: "Open Sans", sans-serif;
+    color: #444444;
+    margin-left: auto;
+    margin-right: 0px;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway", sans-serif;
+}
+
+
+/* navbar css kodları*/
+  .navbar{
+    margin: 0px;
+    padding: 8px;
+    background-color: #5D488D ;
+  }
+
+
+
+.navbar ul {
+    margin: 0px;
+    padding: 8px;
+    list-style: none;
+  }
+
+
+  .navbar a {
+    display: block;
+    position: relative;
+    color: white;
+    transition: 0.3s;
+    font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  .navbar a:hover,  .navbar li:hover, .navbar .active {
+    color:#C4BCD6;
+  }
+
+/* navbar sonu */
+
+.yazi p:hover {
+    color: purple;
+    font-weight: bold;
+}
+
+p {
+    font-weight: bold;
+}
+
+#footer {
+    background-color: #5D488D;
+    color: white;
+    height: 170px;
+    width: 1320px;
+    margin: 0px;
+}
+
+    #footer a:hover {
+        color: orange;
+    }
+
+
+img {
+    border-radius: 10px;
+}
+
+    img:hover {
+        border: 3px solid #5D488D;
+    }
+
+#anaresim {
+    border: none;
+    border-radius: 0;
+}
+
+#slider-id1 {
+    border: none;
+    border-radius: 0;
+}
