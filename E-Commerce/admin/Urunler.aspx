@@ -108,7 +108,7 @@
 
             <!-- Main content -->
             <section class="content">
-                        <form method="post" runat="server">
+                        <form method="post" runat="server" EncType="multipart/form-data">
 
                 <!-- Default box -->
                 <div class="card <%= Duzenle %>">
@@ -138,9 +138,19 @@
                                         <asp:TextBox ID="Stok" runat="server" type="number"  class="form-control" placeholder="Stok Bilgisi" ></asp:TextBox>
                                     </div>
                                     <div class="form-group">
-                                        <asp:TextBox ID="Resim" runat="server" type="text"  class="form-control" placeholder="Resim Ekle " ></asp:TextBox>
+                                        <label>Resim</label>
+                                        <INPUT id="oFile" type="file" runat="server" NAME="oFile">
                                     </div>
-
+                                    <div class="form-group">
+                                        <asp:DropDownList class="form-control" runat="server" ID="Kategori" AppendDataBoundItems="true">
+    <asp:ListItem Text="PASTALAR" Value="PASTALAR" />
+    <asp:ListItem Text="KAHVALTILIKLAR" Value="KAHVALTILIKLAR" />
+    <asp:ListItem Text="TATLI_TUZLU_ATIŞTIRMALIKLAR" Value="TATLI_TUZLU_ATIŞTIRMALIKLAR" />
+    <asp:ListItem Text="İÇECEKLER" Value="İÇECEKLER" />
+    <asp:ListItem Text="ÇİKOLATALAR" Value="ÇİKOLATALAR" />
+    <asp:ListItem Text="ŞEKERLEMELER" Value="ŞEKERLEMELER" />
+</asp:DropDownList>
+                                    </div>
                                     <div class="form-group">
                                         <asp:TextBox  TextMode="MultiLine" ID="Aciklama" runat="server" type="text"  class="form-control" placeholder="Açıklama" ></asp:TextBox>
                                     </div>
@@ -151,7 +161,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <asp:Button runat="server" Text="Kaydet" class="btn btn-success btn-block" OnClick="Kaydet_Click" />
+                        <asp:Button runat="server" type="submit" Text="Kaydet" class="btn btn-success btn-block" OnClick="Kaydet_Click" />
                         <asp:Button ID="SilButton" runat="server" Text="Sil" class="btn btn-danger btn-block" OnClick="Sil_Click" />
                     </div>
                     <!-- /.card-footer-->
@@ -173,9 +183,11 @@
                   <thead>
                     <tr>
                       <th>ID</th>
+                      <th>Resim</th>
                       <th>Adı</th>
                       <th>Fiyatı</th>
                       <th>Stok</th>
+                      <th>Kategori</th>
                       <th>Açıklama</th>
                       <th>İşlemler</th>
                     </tr>
@@ -184,9 +196,11 @@
 <% foreach (var item in urunler) { %>
   <tr>
     <td><%= item.Id %></td>
+    <td><img style="height:50px" src="/resimler/urunler/<%= item.Resim %>" /></td>
     <td><%= item.Adi %></td>
     <td><%= item.Fiyati %></td>
     <td><%= item.Stok %></td>
+    <td><%= item.Kategori %></td>
     <td><%= item.Aciklama %></td>
     <td><a href="Urunler.aspx?Id=<%= item.Id %>">Düzenle</a></td>
   </tr>

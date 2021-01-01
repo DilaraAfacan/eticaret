@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.IO;
 
 namespace E_Commerce.admin
 {
+    public enum UrunKategorileri
+    {
+        PASTALAR,
+        KAHVALTILIKLAR,
+        TATLI_TUZLU_ATIŞTIRMALIKLAR,
+        İÇECEKLER,
+        ÇİKOLATALAR,
+        ŞEKERLEMELER
+    }
     public partial class Urunler : System.Web.UI.Page
     {
         public int Id { get; set; }
@@ -20,6 +26,8 @@ namespace E_Commerce.admin
             public int Stok { get; set; }
             public string Resim { get; set; }
             public string Aciklama { get; set; }
+
+            public string Kategori { get; set; }
         }
         SqlConnection baglanti = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Pastahane;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         public List<dynamic> urunler = new List<dynamic>();
@@ -32,6 +40,10 @@ namespace E_Commerce.admin
                 Id = int.Parse(id);
                 if ((Session["Urunler_Id"] == null || string.IsNullOrEmpty(Session["Urunler_Id"].ToString())))
                     Duzenle_Click(Request.QueryString["Id"]);
+            }
+            else
+            {
+                Session["Urunler_Id"] = null;
             }
 
 
@@ -50,6 +62,7 @@ namespace E_Commerce.admin
                         Stok = reader.GetInt32(3),
                         Resim = reader.GetString(4),
                         Aciklama = reader.GetString(5),
+                        Kategori=reader.GetString(6),
                     });
                 }
             }
@@ -58,13 +71,35 @@ namespace E_Commerce.admin
         }
         protected void Kaydet_Click(object sender, EventArgs e)
         {
+            string strFileName;
+            string strFilePath;
+            string strFolder;
+            strFolder = Server.MapPath("../resimler/urunler/");
+            // Retrieve the name of the file that is posted.
+            strFileName = oFile.PostedFile.FileName;
+            strFileName = Path.GetFileName(strFileName);
+            if (oFile.Value != "")
+            {
+                // Create the folder if it does not exist.
+                if (!Directory.Exists(strFolder))
+                {
+                    Directory.CreateDirectory(strFolder);
+                }
+                // Save the uploaded file to the server.
+                strFilePath = strFolder + strFileName;
+                if (!File.Exists(strFilePath))
+                {
+                    oFile.PostedFile.SaveAs(strFilePath);
+                }
+            }
+
             baglanti.Open();
 
             string sql;
-            if (Id == 0) sql = @"Insert into Urunler(Adi,Fiyati,Stok,Resim,Aciklama) 
-                values ('" + Adi.Text + "'," + Fiyati.Text + "," + Stok.Text + ",'" + Resim.Text + "','" + Aciklama.Text + "')";
-            else sql = @"update Urunler set Adi = '" + Adi.Text + @"',Fiyati= " + Fiyati.Text + @",Stok=" + Stok.Text + @",Resim='" + Resim.Text +
-                    @"',Aciklama='" + Aciklama.Text + "' where Id = " + Id;
+            if (Id == 0) sql = @"Insert into Urunler(Adi,Fiyati,Stok,Resim,Aciklama,Kategori) 
+                values ('" + Adi.Text + "'," + Fiyati.Text + "," + Stok.Text + ",'" + strFileName + "','" + Aciklama.Text + "','" + Kategori.SelectedValue + "')";
+            else sql = @"update Urunler set Adi = '" + Adi.Text + @"',Fiyati= " + Fiyati.Text + @",Stok=" + Stok.Text + (string.IsNullOrEmpty(strFileName) ?"": @",Resim='" + strFileName) +
+                    @"',Aciklama='" + Aciklama.Text + "',Kategori='" + Kategori.SelectedValue + "' where Id = " + Id;
 
             SqlCommand cmd = new SqlCommand(sql, baglanti);
             cmd.ExecuteNonQuery();
@@ -104,8 +139,9 @@ namespace E_Commerce.admin
                     Adi.Text = reader.GetString(1);
                     Fiyati.Text = reader.GetDouble(2).ToString();
                     Stok.Text = reader.GetInt32(3).ToString();
-                    Resim.Text = reader.GetString(4);
                     Aciklama.Text = reader.GetString(5);
+                    Kategori.SelectedValue = reader.GetString(6);
+                    Kategori.Text = reader.GetString(6);
                 }
             }
 
