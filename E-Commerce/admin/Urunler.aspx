@@ -47,7 +47,7 @@
                         <img src="/admin/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">Admin</a>
                     </div>
                 </div>
 
@@ -69,7 +69,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="Urunler.aspx" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Ürünler
@@ -111,7 +111,7 @@
                         <form method="post" runat="server">
 
                 <!-- Default box -->
-                <div class="card collapsed-card">
+                <div class="card <%= Duzenle %>">
                     <div class="card-header">
                         <h3 class="card-title">Ürün Ekle</h3>
 
@@ -151,7 +151,8 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <asp:Button ID="Button1" runat="server" Text="Kaydet" class="btn btn-success btn-block" OnClick="Button1_Click" />
+                        <asp:Button runat="server" Text="Kaydet" class="btn btn-success btn-block" OnClick="Kaydet_Click" />
+                        <asp:Button ID="SilButton" runat="server" Text="Sil" class="btn btn-danger btn-block" OnClick="Sil_Click" />
                     </div>
                     <!-- /.card-footer-->
                 </div>
@@ -187,7 +188,7 @@
     <td><%= item.Fiyati %></td>
     <td><%= item.Stok %></td>
     <td><%= item.Aciklama %></td>
-    <td><asp:Button runat="server" Text="Düzenle" class="btn btn-primary btn-block" CommandArgument='<%= item.Id %>' CommandName='<%= item.Id %>' OnCommand="Duzenle_Click" /></td>
+    <td><a href="Urunler.aspx?Id=<%= item.Id %>">Düzenle</a></td>
   </tr>
 <% } %>
                   </tbody>
