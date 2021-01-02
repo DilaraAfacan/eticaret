@@ -1,0 +1,36 @@
+CREATE TABLE [dbo].[Urunler] (
+    [Id]       INT           IDENTITY (1, 1) NOT NULL,
+    [Adi]      VARCHAR (500) NOT NULL,
+    [Fiyati]   FLOAT (53)    NOT NULL,
+    [Stok]     INT           NOT NULL,
+    [Resim]    VARCHAR (MAX) NOT NULL,
+    [Aciklama] VARCHAR (MAX) NULL,
+    [Kategori] VARCHAR (100) DEFAULT ('PASTALAR') NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+CREATE TABLE [dbo].[Siparisler] (
+    [Id]              INT           IDENTITY (1, 1) NOT NULL,
+    [Ad]              VARCHAR (100) NOT NULL,
+    [Soyad]           VARCHAR (100) NOT NULL,
+    [EPosta]          VARCHAR (100) NULL,
+    [Adres]           VARCHAR (500) NOT NULL,
+    [Ulke]            VARCHAR (100) NOT NULL,
+    [Sehir]           VARCHAR (100) NOT NULL,
+    [OdemeSekli]      VARCHAR (100) NOT NULL,
+    [ToplamTutar]     FLOAT (53)    NOT NULL,
+    [SiparisNumarasi] VARCHAR (100) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+CREATE TABLE [dbo].[SiparisUrunler] (
+    [Id]              INT           IDENTITY (1, 1) NOT NULL,
+    [SiparisNumarasi] VARCHAR (100) NOT NULL,
+    [UrunId]          INT           NOT NULL,
+    [Miktar]          INT           NOT NULL,
+    [Fiyat]           FLOAT (53)    NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
