@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace E_Commerce
+namespace E_Commerce.admin
 {
 
 
-    public partial class WebForm5
+    public partial class Siparisler
     {
     }
 }

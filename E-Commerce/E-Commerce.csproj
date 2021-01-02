@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\SiparisDetay.aspx" />
+    <Content Include="admin\Siparisler.aspx" />
     <Content Include="admin\Urunler.aspx" />
     <Content Include="E-Patisserie\anasayfa-resimler\anaresim.jpeg" />
     <Content Include="E-Patisserie\anasayfa-resimler\anaresim2.jpeg" />
@@ -130,6 +132,8 @@
     <Content Include="E-Patisserie\anasayfa-resimler\tatlıtuzlu7.jpg" />
     <Content Include="E-Patisserie\anasayfa-resimler\tatlıtuzlu8.jpg" />
     <Content Include="E-Patisserie\anasayfa-resimler\tatlıtuzlu9.jpg" />
+    <Content Include="Odeme.aspx" />
+    <Content Include="OdemeBasarili.aspx" />
     <Content Include="resimler\pastry1.jpg" />
     <Content Include="resimler\hakkımızda.jpg" />
     <Content Include="resimler\Ekran Alıntısı.PNG" />
@@ -145,18 +149,54 @@
     <Content Include="Anasayfa.aspx" />
     <Content Include="Hakkımızda.aspx" />
     <Content Include="sepet.aspx" />
-    <Content Include="ödeme.aspx" />
     <Content Include="ürünler.aspx" />
     <Content Include="İletişim.aspx" />
     <Content Include="İletişim.css" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin\SiparisDetay.aspx.cs">
+      <DependentUpon>SiparisDetay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\SiparisDetay.aspx.designer.cs">
+      <DependentUpon>SiparisDetay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Siparisler.aspx.cs">
+      <DependentUpon>Siparisler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\Siparisler.aspx.designer.cs">
+      <DependentUpon>Siparisler.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\Urunler.aspx.cs">
       <DependentUpon>Urunler.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\Urunler.aspx.designer.cs">
       <DependentUpon>Urunler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\DatabaseBaglanti.cs" />
+    <Compile Include="Managers\UrunManager.cs" />
+    <Compile Include="Odeme.aspx.cs">
+      <DependentUpon>Odeme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Odeme.aspx.designer.cs">
+      <DependentUpon>Odeme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OdemeBasarili.aspx.cs">
+      <DependentUpon>OdemeBasarili.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OdemeBasarili.aspx.designer.cs">
+      <DependentUpon>OdemeBasarili.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Giriş.aspx.cs">
@@ -201,13 +241,6 @@
     <Compile Include="sepet.aspx.designer.cs">
       <DependentUpon>sepet.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ödeme.aspx.cs">
-      <DependentUpon>ödeme.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ödeme.aspx.designer.cs">
-      <DependentUpon>ödeme.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ürünler.aspx.cs">
       <DependentUpon>ürünler.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -224,6 +257,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\Admin.Master" />
     <None Include="packages.config" />
     <Content Include="sabit.Master" />
     <None Include="Web.Debug.config">

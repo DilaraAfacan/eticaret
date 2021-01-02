@@ -1,4 +1,5 @@
-﻿using System;
+﻿using E_Commerce.Managers;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
@@ -18,19 +19,9 @@ namespace E_Commerce.admin
     {
         public int Id { get; set; }
         public string Duzenle { get; set; } = "collapsed-card";
-        public class urun
-        {
-            public int Id { get; set; }
-            public string Adi { get; set; }
-            public double Fiyati { get; set; }
-            public int Stok { get; set; }
-            public string Resim { get; set; }
-            public string Aciklama { get; set; }
-
-            public string Kategori { get; set; }
-        }
-        SqlConnection baglanti = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Pastahane;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-        public List<dynamic> urunler = new List<dynamic>();
+        
+        SqlConnection baglanti = DatabaseBaglanti.BaglantiGetir();
+        public List<Urun> urunler = new List<Urun>();
         protected void Page_Load(object sender, EventArgs e)
         {
             SilButton.Visible = false;
@@ -46,28 +37,8 @@ namespace E_Commerce.admin
                 Session["Urunler_Id"] = null;
             }
 
-
-            baglanti.Open();
-
-            SqlCommand cmd = new SqlCommand(@"select * from Urunler order by Id desc", baglanti);
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    urunler.Add(new urun
-                    {
-                        Id = reader.GetInt32(0),
-                        Adi = reader.GetString(1),
-                        Fiyati = reader.GetDouble(2),
-                        Stok = reader.GetInt32(3),
-                        Resim = reader.GetString(4),
-                        Aciklama = reader.GetString(5),
-                        Kategori=reader.GetString(6),
-                    });
-                }
-            }
-
-            baglanti.Close();
+            urunler = UrunManager.UrunleriGetir();
+            
         }
         protected void Kaydet_Click(object sender, EventArgs e)
         {

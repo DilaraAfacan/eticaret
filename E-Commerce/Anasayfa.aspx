@@ -38,99 +38,23 @@
         <div class="w3-content" style="max-width:1200px" >
          <hr>
         
+
+
         <div class="w3-row "> 
             <header class="w3-container w3-xlarge">
                 <p class="w3-center">PASTALAR</p>
               </header>
+                        <% foreach (var item in urunler.Where(s=>s.Kategori == E_Commerce.admin.UrunKategorileri.PASTALAR.ToString())) { %>
 
-
-              <div class="w3-col l3 s6">
+            <div class="w3-col l3 s6">
                 <div class="w3-container">
-            <a href=""><img src="..\E-Patisserie\anasayfa-resimler\pasta1.jpeg" style="width:280px" height="210px"></a>      
-               <a class="yazi" href=""> <p>FRAMBUAZLI CHEESECAKE</p></a>  
+            <a href=""><img src="/resimler/urunler/<%= item.Resim %>" style="width:280px" height="210px"></a>      
+               <a class="yazi" href=""> <p><%= item.Adi %></p></a>  
                 </div>
               </div>
+<% } %>
 
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-           <a href=""><img src="..\E-Patisserie\anasayfa-resimler\pasta2.jpeg" style="width:280px" height="210px"></a>      
-               <a class="yazi" href=""><p>KİRAZLI ÇİKOLATALI PASTA</p></a>  
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-             <a href=""><img src="..\E-Patisserie\anasayfa-resimler\pasta3.jpeg" style="width:280px" height="210px"></a>    
-             <a class="yazi" href=""><p>ÇİLEKLİ BROWNİE</p> </a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-            <a href=""><img src="..\E-Patisserie\anasayfa-resimler\pasta4.jpeg" style="width:280px" height="210px"></a>
-           <a class="yazi" href=""><p>MEYVELİ PASTA</p> </a>  
-                </div>
-              </div>
-
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-             <a href=""><img src="..\E-Patisserie\anasayfa-resimler\pasta5.jpg" style="width:280px" height="210px"></a>     
-           <a class="yazi" href=""><p>MUZLU ÇİLEKLİ PASTA</p> </a>  
-                </div>
-              </div>
-
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-             <a href=""><img src="..\E-Patisserie\anasayfa-resimler\pasta6.jpeg" style="width:280px" height="210px"></a>     
-              <a class="yazi" href=""><p>ÇİLEKLİ PASTA</p> </a>  
-                </div>
-              </div>
-
-        
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-              <a href=""></a>    <img src="..\E-Patisserie\anasayfa-resimler\pasta8.jpeg" style="width:280px" height="210px">
-               <a class="yazi" href=""><p>CUPCAKE</p> </a>  
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-            <a href=""></a><img src="..\E-Patisserie\anasayfa-resimler\pasta9.jpeg" style="width:280px" height="210px">
-               <a class="yazi" href=""><p>FRAMBUAZLI TART</p> </a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-             <a href=""></a><img src="..\E-Patisserie\anasayfa-resimler\pasta10.jpeg" style="width:280px" height="210px">
-               <a class="yazi" href=""><p>MEYVELİ BARDAK PASTA</p> </a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-              <a href=""></a>    <img src="..\E-Patisserie\anasayfa-resimler\pasta11.jpeg" style="width:280px" height="210px">
-              <a class="yazi" href=""><p>ÇİLEKLİ BARDAK PASTA</p></a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-                  <img src="..\E-Patisserie\anasayfa-resimler\pasta12.jpeg" style="width:280px" height="210px">
-               <a class="yazi" href=""><p>ÇİLEKLİ VİŞNELİ BARDAK PASTA</p></a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-            <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\pasta13.jpeg" style="width:280px" height="210px">
-           <a class="yazi" href=""><p>ÇİLEKLİ DONDURMA</p></a> 
-                </div>
-              </div>
+              
           </div>
 
 
@@ -142,54 +66,17 @@
                 <p class="w3-center">KAHVALTILIKLAR</p>
               </header>
 
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-               <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\kahvalti1.jpeg" style="width:280px" height="210px"></a> 
-                 <a class="yazi" href=""><p>E-Patisserie Kahvaltı Tabağı</p></a> 
-                </div>
-              </div>
+              <% foreach (var item in urunler.Where(s=>s.Kategori == E_Commerce.admin.UrunKategorileri.KAHVALTILIKLAR.ToString())) { %>
 
-              <div class="w3-col l3 s6">
+            <div class="w3-col l3 s6">
                 <div class="w3-container">
-           <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\kahvalti2.jpeg" style="width:280px" height="210px"></a> 
-          <a class="yazi" href=""><p>Serpme Kahvaltı</p></a> 
+            <a href=""><img src="/resimler/urunler/<%= item.Resim %>" style="width:280px" height="210px"></a>      
+               <a class="yazi" href=""> <p><%= item.Adi %></p></a>  
                 </div>
               </div>
+<% } %>
 
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-         <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\kahvalti3.jpeg" style="width:280px" height="210px"></a> 
-           <a class="yazi" href=""><p>Simit, Açma, Poğaça</p></a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-            <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\kahvalti4.jpg" style="width:280px" height="210px"></a> 
-            <a class="yazi" href=""><p>Sahanda Yumurta</p></a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-             <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\kahvalti5.jpg" style="width:280px" height="210px"></a> 
-         <a class="yazi" href=""><p>SİMİT TOST</p></a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-           <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\kahvalti6.jpeg" style="width:280px" height="210px"></a> 
-           <a class="yazi" href=""><p>PANKEK</p></a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-            <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\kahvalti7.jpeg" style="width:280px" height="210px"></a> 
-            <a class="yazi" href=""><p>SÜTLÜ SİMİT</p></a> 
-                </div>
-              </div>
+              
           </div>
 
           <hr>
@@ -199,68 +86,18 @@
                 <p class="w3-center">TATLI-TUZLU ATIŞTIRMALILAR</p>
               </header>
 
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-            <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\tatlıtuzlu1.jpg" style="width:280px" height="210px"></a> 
-          <a class="yazi" href=""><p>AY ÇÖREĞİ</p></a> 
-                </div>
-              </div>
 
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-            <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\tatlıtuzlu2.jpg" style="width:280px" height="210px"></a> 
-           <a class="yazi" href=""><p>MİNİ ÇÖREKLER</p></a> 
-                </div>
-              </div>
+               <% foreach (var item in urunler.Where(s=>s.Kategori == E_Commerce.admin.UrunKategorileri.TATLI_TUZLU_ATIŞTIRMALIKLAR.ToString())) { %>
 
-              <div class="w3-col l3 s6">
+            <div class="w3-col l3 s6">
                 <div class="w3-container">
-             <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\tatlıtuzlu3.jpg" style="width:280px" height="210px"></a> 
-            <a class="yazi" href=""><p>KAKAOLU FINDIKLI KURABİYE</p></a> 
+            <a href=""><img src="/resimler/urunler/<%= item.Resim %>" style="width:280px" height="210px"></a>      
+               <a class="yazi" href=""> <p><%= item.Adi %></p></a>  
                 </div>
               </div>
+<% } %>
 
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-             <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\tatlıtuzlu4.jpg" style="width:280px" height="210px"></a> 
-            <a class="yazi" href=""><p>ŞEKERLİ KURABİYELER</p></a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-          <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\tatlıtuzlu5.jpg" style="width:280px" height="210px"></a> 
-        <a class="yazi" href=""><p>TEKLİ ÇİKOLATA TOPU</p></a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-             <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\tatlıtuzlu6.jpg" style="width:280px" height="210px"></a> 
-            <a class="yazi" href=""><p>PEYNİRLİ BÖREK</p></a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-          <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\tatlıtuzlu7.jpg" style="width:280px" height="210px"></a> 
-            <a class="yazi" href=""><p>TATLI TUZLU KURABİYELER</p></a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-           <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\tatlıtuzlu8.jpg" style="width:280px" height="210px"></a> 
-           <a class="yazi" href=""><p>MACAR KEKİ</p></a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-            <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\tatlıtuzlu9.jpg" style="width:280px" height="210px"></a> 
-           <a class="yazi" href=""><p>E-PATİSSERİE ÖZEL KURABİYESİ</p></a> 
-                </div>
-              </div>
+              
           </div>
 
 
@@ -275,69 +112,18 @@
                 <p class="w3-center">İÇECEKLER</p>
               </header>
 
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-             <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\icecek1.jpeg" style="width:280px" height="210px"></a> 
-            <a class="yazi" href=""><p>LATTE</p></a> 
-                </div>
-              </div>
 
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-         <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\icecek2.jpeg" style="width:280px" height="210px"></a> 
-         <a class="yazi" href=""><p>TÜRK KAHVESİ YANINDA TATLI</p></a> 
-                </div>
-              </div>
+               <% foreach (var item in urunler.Where(s=>s.Kategori == E_Commerce.admin.UrunKategorileri.İÇECEKLER.ToString())) { %>
 
-              <div class="w3-col l3 s6">
+            <div class="w3-col l3 s6">
                 <div class="w3-container">
-            <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\icecek3.jpeg" style="width:280px" height="210px"></a> 
-          <a class="yazi" href=""><p>TÜRK KAHVESİ</p>
+            <a href=""><img src="/resimler/urunler/<%= item.Resim %>" style="width:280px" height="210px"></a>      
+               <a class="yazi" href=""> <p><%= item.Adi %></p></a>  
                 </div>
               </div>
+<% } %>
 
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-             <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\icecek4.jpeg" style="width:280px" height="210px"></a> 
-          <a class="yazi" href=""><p>PORTAKAL SUYU</p></a> 
-                </div>
-              </div>
-              
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-          <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\icecek5.jpeg" style="width:280px" height="210px"></a> 
-           <a class="yazi" href=""><p>LİMONATA</p></a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-          <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\icecek6.jpeg" style="width:280px" height="210px"></a> 
-          <a class="yazi" href=""><p>PAPATYA ÇAYI</p></a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-         <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\icecek7.jpeg" style="width:280px" height="210px"></a> 
-         <a class="yazi" href=""><p>BİTKİ ÇAYLARI</p></a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-          <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\icecek8.jpeg" style="width:280px" height="210px"></a> 
-          <a class="yazi" href=""><p>ARABİCA KAHVE</p></a> 
-                </div>
-              </div>
-
-              <div class="w3-col l3 s6">
-                <div class="w3-container">
-           <a class="yazi" href=""><img src="..\E-Patisserie\anasayfa-resimler\icecek9.jpeg" style="width:280px" height="210px"></a> 
-             <a class="yazi" href=""><p>ROBUSTA KAHVE</p></a> 
-                </div>
-              </div>
+             
           
           </div>
 
