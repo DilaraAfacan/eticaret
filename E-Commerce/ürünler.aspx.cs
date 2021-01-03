@@ -10,6 +10,7 @@ namespace E_Commerce
 {
     public partial class WebForm7 : Page
     {
+        public List<Urun> tumurunler = new List<Urun>();
         public List<Urun> urunler = new List<Urun>();
         public List<int> sepet = new List<int>();
         protected void Page_Load(object sender, EventArgs e)
@@ -23,11 +24,21 @@ namespace E_Commerce
             if (!string.IsNullOrEmpty(action) && action == "sepetekle")
             {
                 var id = int.Parse(Request.QueryString["id"]);
-                    sepet.Add(id);
+                sepet.Add(id);
                 Session["sepet_urun_idler"] = string.Join(",", sepet.Distinct());
             }
+            tumurunler = UrunManager.UrunleriGetir();
+            if (!string.IsNullOrEmpty(action) && action == "ara")
+            {
 
-            urunler = UrunManager.UrunleriGetir();
+                urunler = tumurunler.Where(s => s.Adi.ToLower().Contains(Request.QueryString["q"].ToLower())).ToList();
+            }
+            else
+            {
+
+                urunler = tumurunler;
+            }
+
         }
     }
 }

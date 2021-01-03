@@ -69,8 +69,8 @@ namespace E_Commerce.admin
             string sql;
             if (Id == 0) sql = @"Insert into Urunler(Adi,Fiyati,Stok,Resim,Aciklama,Kategori) 
                 values ('" + Adi.Text + "'," + Fiyati.Text + "," + Stok.Text + ",'" + strFileName + "','" + Aciklama.Text + "','" + Kategori.SelectedValue + "')";
-            else sql = @"update Urunler set Adi = '" + Adi.Text + @"',Fiyati= " + Fiyati.Text + @",Stok=" + Stok.Text + (string.IsNullOrEmpty(strFileName) ?"": @",Resim='" + strFileName) +
-                    @"',Aciklama='" + Aciklama.Text + "',Kategori='" + Kategori.SelectedValue + "' where Id = " + Id;
+            else sql = @"update Urunler set Adi = '" + Adi.Text + @"',Fiyati= " + Fiyati.Text + @",Stok=" + Stok.Text + (string.IsNullOrEmpty(strFileName) ?"": @",Resim='" + strFileName+ "'") +
+                    @",Aciklama='" + Aciklama.Text + "',Kategori='" + Kategori.SelectedValue + "' where Id = " + Id;
 
             SqlCommand cmd = new SqlCommand(sql, baglanti);
             cmd.ExecuteNonQuery();

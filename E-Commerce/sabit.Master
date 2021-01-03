@@ -1,7 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="sabit.master.cs" Inherits="E_Commerce.sabit" %>
 
 <!doctype html>
-<html lang="en">
+<html lang="tr">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -45,9 +45,15 @@
                 <a class="nav-link" href="İletişim.aspx">İLETİŞİM</a>
               </li>
           </ul>
+            
+            <script>
+                function arama() {
+                    window.location = "ürünler.aspx?action=ara&q=" + document.getElementById("ara").value
+                }
+            </script>
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Bir ürün ara">
-            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit"><i class="fa fa-fw fa-search"></i>Ara</button>
+            <input class="form-control mr-sm-2" type="search" id="ara" placeholder="Bir ürün ara">
+            <button class="btn btn-outline-warning my-2 my-sm-0" type="button" onclick="arama()"><i class="fa fa-fw fa-search"></i>Ara</button>
           </form>
 
 

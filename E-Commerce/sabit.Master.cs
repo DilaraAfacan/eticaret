@@ -28,5 +28,6 @@ namespace E_Commerce
         {
             Response.Redirect("Giriş.aspx");
         }
+
     }
 }
